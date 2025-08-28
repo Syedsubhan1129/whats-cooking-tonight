@@ -6,6 +6,28 @@ export const useRecipes = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Load default recipes on mount
+  useEffect(() => {
+    const loadDefaultRecipes = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          'https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken'
+        );
+        if (response.ok) {
+          const data: MealDBResponse = await response.json();
+          setRecipes(data.meals?.slice(0, 8) || []);
+        }
+      } catch (err) {
+        console.log('Failed to load default recipes');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadDefaultRecipes();
+  }, []);
+
   const searchRecipesByIngredient = async (ingredient: string) => {
     if (!ingredient.trim()) {
       setRecipes([]);

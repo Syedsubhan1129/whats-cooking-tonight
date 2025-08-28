@@ -125,7 +125,7 @@ const Index = () => {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  className="pl-10 h-12 text-lg bg-white/95 backdrop-blur-sm border-white/20 focus:bg-white transition-all duration-300"
+                  className="pl-10 h-12 text-lg text-black bg-white/95 backdrop-blur-sm border-white/20 focus:bg-white transition-all duration-300"
                 />
               </div>
               <Button 
