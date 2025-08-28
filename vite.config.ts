@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/whats-cooking-tonight/',
   plugins: [
     react(),
     mode === 'development' &&
@@ -15,5 +16,6 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/whats-cooking-tonight/',
+  
 }));
+
